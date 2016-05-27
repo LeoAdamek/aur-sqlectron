@@ -13,9 +13,10 @@ md5sums=('a1ecf94c65ce98a6e1e48ad4e751b05d')
 install=${pkgname}.install
 
 package() {
-    msg2 "Extracting data.tar.xz"
-    bsdtar -xf data.tar.xz -C "${pkgdir}/"
+  msg2 "Extracting data.tar.xz"
+  bsdtar -xf data.tar.xz -C "${pkgdir}/"
 
+  
   find "${pkgdir}" -type f -exec chmod 644 {} \;
   find "${pkgdir}" -type d -exec chmod 755 {} \;
 
@@ -24,5 +25,5 @@ package() {
   mkdir -p "${pkgdir}"/usr/local/bin/
 
   # Create a symlink in the default $PATH
-  ln -s "${pkgdir}"/opt/Sqlectron/Sqlectron "${pkgdir}"/usr/local/bin/sqlectron-gui
+  ln -s /opt/Sqlectron/Sqlectron "${pkgdir}"/usr/local/bin/sqlectron-gui
 }
